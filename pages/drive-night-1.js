@@ -2,7 +2,7 @@ import Layout from './../components/layout';
 
 export default function Sunset() {
   return (
-    <Layout logoColor="deeppink" videoName="green-grass-no-audio" nextPage="drive-night-1">
+    <Layout logoColor="darkorange" videoName="drive-night-1" nextPage="">
       
     </Layout>
   )
