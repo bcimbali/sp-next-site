@@ -46,6 +46,7 @@ function Layout({ children, logoColor, videoName, nextPage }) {
     <Head>
       <title>Super Public</title>
       <link rel="icon" href="/favicon.ico" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
     </Head>
 
     <StyledHeader>
