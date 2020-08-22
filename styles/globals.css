@@ -12,33 +12,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-.App-header {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 400px;
-}
-
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-}
-
-.new-logo {
-  fill: rgb(242, 255, 0);
-}
