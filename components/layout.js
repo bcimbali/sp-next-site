@@ -31,8 +31,9 @@ const StyledHeader = styled.header`
 
 const BackgroundVideo = styled.video`
   bottom: 0;
-  min-height: 100%;
-  min-width: 100%;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
   position: fixed;
   right: 0;
   z-index: -1;
