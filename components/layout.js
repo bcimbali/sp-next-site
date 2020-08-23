@@ -105,13 +105,17 @@ const LinksContainer = styled.div`
 
     :hover {
       border-color: ${({ textColor }) => textColor};
-      letter-spacing: 3px;
+      letter-spacing: 10px;
       opacity: 0.8;
     }
 
     @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
+      font-size: 1.5rem;
+
+      :hover {
+        letter-spacing: 3px;
+      }
+    }
   }
 `;
 
