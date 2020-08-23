@@ -66,6 +66,12 @@ const PageSection = styled.section`
   display: flex;
   font-family: monospace;
   min-height: 100vh;
+
+  ${({ fullWidth }) => fullWidth && css`
+    justify-content: center;
+    padding: 0 20px;
+    width: 100vw;
+  `}
 `;
 
 const InnerContainer = styled.div`
@@ -102,7 +108,7 @@ const LinksContainer = styled.div`
   }
 `;
 
-function Layout({ children, logoColor, videoName, nextPage, showAnimation, textColor = "black" }) {
+function Layout({ children, logoColor, videoName, nextPage, showAnimation, textColor = "black", audioPlayerColor = 'bada55' }) {
   return (
   <Container>
     <Head>
@@ -130,6 +136,12 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
             <Paragraph>
             A sheet music book for Prince’s “Purple Rain” spotted in the back of Cimbalik’s Chevrolet during a session at a mutual friend’s studio was the genesis of Super Public. Intrigued by each other’s knowledge and skill, it was only a matter of days before a TR-707 drum machine and Juno 6 analog synthesizer were passed back and forth, crafting patterns and textures over the course of the following month. As the songs matured, it became clear that both artists drew inspiration from the unique geography and anthropology of Southeastern Michigan. An afternoon spent on Belle Isle watching sheets of ice flow from Lake St. Clair down the Detroit River typified a prelude to a particularly fruitful late night recording session. Cimbalik and Thornburgh have since relocated, to Albuquerque and Chicago, respectively, continuing to write, produce and perform.
             </Paragraph>
+          </InnerContainer>
+        </PageSection>
+        <PageSection fullWidth>
+          <InnerContainer>
+          <iframe width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2045277&color=%23${audioPlayerColor}&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false`}>
+          </iframe>
           </InnerContainer>
         </PageSection>
         <PageSection textColor={textColor}>
