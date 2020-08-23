@@ -26,6 +26,11 @@ const StyledHeader = styled.header`
   width: 100%;
   margin: 0 auto;
   max-width: 400px;
+
+  @media (max-width: 480px) {
+    bottom: 20px;
+    top: auto;
+  }
 `;
 
 
