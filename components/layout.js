@@ -64,7 +64,9 @@ const PageSection = styled.section`
   align-items: center;
   color: ${({ textColor }) => textColor};
   display: flex;
-  font-family: monospace;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 100;
+  text-transform: uppercase;
   min-height: 100vh;
 
   ${({ fullWidth }) => fullWidth && css`
@@ -115,6 +117,7 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
       <title>Super Public</title>
       <link rel="icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet" />
     </Head>
 
     <BackgroundVideo poster={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
