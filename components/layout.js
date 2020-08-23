@@ -74,6 +74,10 @@ const PageSection = styled.section`
     padding: 0 20px;
     width: 100vw;
   `}
+
+  @media (max-width: 768px) {
+    font-weight: 300;
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -126,7 +130,7 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
       <title>Super Public</title>
       <link rel="icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
-      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300&display=swap" rel="stylesheet" />
     </Head>
 
     <BackgroundVideo poster={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
