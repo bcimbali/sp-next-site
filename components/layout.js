@@ -37,10 +37,10 @@ const StyledHeader = styled.header`
 const BackgroundVideo = styled.video`
   bottom: 0;
   height: 100vh;
-  width: 100vw;
   object-fit: cover;
   position: fixed;
   right: 0;
+  width: 100vw;
   z-index: -1;
 `;
 
@@ -164,13 +164,13 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
           <InnerContainer>
             <LinksContainer textColor={textColor}>
             <div>
-              <a href="http://chambrayrecords.com/cham009">Lottery of Life</a>
+              <a target="_blank" href="http://chambrayrecords.com/cham009">Lottery of Life</a>
             </div>
             <div>
-              <a href="http://chambrayrecords.com/cham002">More Than a Marathon</a>
+              <a target="_blank" href="http://chambrayrecords.com/cham002">More Than a Marathon</a>
             </div>
             <div>
-              <a href="http://chambrayrecords.com/cham007">Music Is My Jam</a>
+              <a target="_blank" href="http://chambrayrecords.com/cham007">Music Is My Jam</a>
             </div>
             </LinksContainer>
           </InnerContainer>
