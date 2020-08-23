@@ -93,15 +93,20 @@ const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  
+  div {
+    margin-bottom: 40px;
+  }
 
   a {
     font-size: 3rem;
-    margin-bottom: 40px;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.5s;
 
     :hover {
+      border-color: ${({ textColor }) => textColor};
       letter-spacing: 3px;
       opacity: 0.8;
-      transition: all 0.5s;
     }
 
     @media (max-width: 768px) {
@@ -149,10 +154,16 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
         </PageSection>
         <PageSection textColor={textColor}>
           <InnerContainer>
-            <LinksContainer>
+            <LinksContainer textColor={textColor}>
+            <div>
               <a href="http://chambrayrecords.com/cham009">Lottery of Life</a>
+            </div>
+            <div>
               <a href="http://chambrayrecords.com/cham002">More Than a Marathon</a>
+            </div>
+            <div>
               <a href="http://chambrayrecords.com/cham007">Music Is My Jam</a>
+            </div>
             </LinksContainer>
           </InnerContainer>
         </PageSection>
