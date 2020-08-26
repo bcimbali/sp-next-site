@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 const Container = styled.div`
   align-items: center;
@@ -123,7 +124,83 @@ const LinksContainer = styled.div`
   }
 `;
 
+const RadioWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .sp-progress-bar {
+    progress[value] {
+      background-color: green;
+      color: red;
+    }
+  }
+`;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+`;
+
+const PlayButton = styled.div`
+  align-items: center;
+  background: deepskyblue;
+  border: 1px solid black;
+  display: flex;
+  font-size: 2rem;
+  height: 100px;
+  justify-content: center;
+  opacity: 0.8;
+  width: 100%;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  :active {
+    opacity: 0.3;
+  }
+`;
+
+const PauseButton = styled.div`
+  align-items: center;
+  background: deepskyblue;
+  border: 1px solid black;
+  display: flex;
+  font-size: 2rem;
+  height: 100px;
+  justify-content: center;
+  opacity: 0.8;
+  width: 100%;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  :active {
+    opacity: 0.3;
+  }
+`;
+
 function Layout({ children, logoColor, videoName, nextPage, showAnimation, textColor = "black", audioPlayerColor = 'bada55' }) {
+let Amplitude;
+  if (typeof window !== 'undefined') {
+    Amplitude = require('amplitudejs');
+  }
+
+  useEffect(() => Amplitude.init({
+    songs: [
+      {
+        "name": "Crime Scene",
+        "artist": "Super Public",
+        "album": "More Than A Marathon",
+        "url": "https://s3.amazonaws.com/super-public-site-assets/01+Crime+Scene.mp3",
+        "cover_art_url": "",
+        "made_up_key": "I'm made up completely"
+      }
+    ]
+  }), []);
+
   return (
   <Container>
     <Head>
@@ -133,11 +210,15 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300&display=swap" rel="stylesheet" />
     </Head>
 
-    <BackgroundVideo poster={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
+    <BackgroundVideo poster={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
+      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.webm`} type="video/webm" />
+      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.mp4`} type="video/mp4" />
+    </BackgroundVideo>
+
+    {/* <BackgroundVideo poster={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
       <source src={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.webm`} type="video/webm" />
       <source src={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.mp4`} type="video/mp4" />
-      <source src={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.ogv`} type="video/ogg" />
-    </BackgroundVideo>
+    </BackgroundVideo> */}
 
 <PageSection>
     <StyledHeader>
@@ -156,8 +237,16 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
         </PageSection>
         <PageSection fullWidth>
           <InnerContainer>
-          <iframe width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2045277&color=%23${audioPlayerColor}&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false`}>
-          </iframe>
+          {/* <iframe width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2045277&color=%23${audioPlayerColor}&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false`}>
+          </iframe> */}
+          {/* <audio src="https://res.cloudinary.com/bcimbali/video/upload/v1598317896/Audio/01_Crime_Scene.mp3" controls type="audio/mp3" /> */}
+          <RadioWrapper>
+            <ButtonsWrapper>
+              <PlayButton className="amplitude-play">PLAY</PlayButton>
+              <PauseButton className="amplitude-pause">PAUSE</PauseButton>
+            </ButtonsWrapper>
+            <progress style={{ width: '100%' }} class="amplitude-song-played-progress sp-progress-bar"></progress>
+          </RadioWrapper>
           </InnerContainer>
         </PageSection>
         <PageSection textColor={textColor}>
