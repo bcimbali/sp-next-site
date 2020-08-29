@@ -136,7 +136,7 @@ const RadioWrapper = styled.div`
   }
 
   .song-slider {
-    margin-top: 20px; 
+    margin-top: 45px; 
 
     -webkit-appearance: none;
     appearance: none;
@@ -257,16 +257,20 @@ const PlaylistContainer = styled.div`
   color: deepskyblue;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   width: 100%;
 `;
 
 const PlaylistItem = styled.div`
+  border-bottom: 1px solid deepskyblue;
   color: deepskyblue;
   font-size: 2rem;
-  border-bottom: 1px dashed deepskyblue;
+  padding: 5px 0;
 
   :hover {
+    background-color: #00bfff;
     cursor: pointer;
+    color: #000000;
     opacity: 0.8;
   }
 `;
@@ -344,8 +348,8 @@ const [songs, setSongs] = useState([]);
     </Head>
 
     <BackgroundVideo poster={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
-      {/* <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.webm`} type="video/webm" />
-      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.mp4`} type="video/mp4" /> */}
+      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.webm`} type="video/webm" />
+      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.mp4`} type="video/mp4" />
     </BackgroundVideo>
 
     {/* <BackgroundVideo poster={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
