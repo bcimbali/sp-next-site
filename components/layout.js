@@ -307,14 +307,29 @@ const [songs, setSongs] = useState([]);
         "album": "More Than A Marathon",
         "url": "https://s3.amazonaws.com/super-public-site-assets/effock.mp3",
         "cover_art_url": ""
-      }
-    ],
-    playlists: {
-      "more_than_a_marathon": {
-        songs: [0, 1],
-        title: 'More Than A Marathon'
       },
-    }
+      {
+        "name": "Music is my Jam",
+        "artist": "Super Public",
+        "album": "Lottery of Life",
+        "url": "https://s3.amazonaws.com/super-public-site-assets/music-is-my-jam.mp3",
+        "cover_art_url": ""
+      },
+      {
+        "name": "Thaw",
+        "artist": "Super Public",
+        "album": "Lottery of Life",
+        "url": "https://s3.amazonaws.com/super-public-site-assets/thaw.mp3",
+        "cover_art_url": ""
+      },
+      {
+        "name": "Why are we Whispering",
+        "artist": "Super Public",
+        "album": "Lottery of Life",
+        "url": "https://s3.amazonaws.com/super-public-site-assets/why-are-we-whispering.mp3",
+        "cover_art_url": ""
+      }
+    ]
   });
   setSongs(Amplitude.getSongs());
 }, []);
@@ -349,7 +364,7 @@ const [songs, setSongs] = useState([]);
         <PageSection textColor={textColor}>
           <InnerContainer>
             <Paragraph>
-            A sheet music book for Prince’s “Purple Rain” spotted in the back of Cimbalik’s Chevrolet during a session at a mutual friend’s studio was the genesis of Super Public. Intrigued by each other’s knowledge and skill, it was only a matter of days before a TR-707 drum machine and Juno 6 analog synthesizer were passed back and forth, crafting patterns and textures over the course of the following month. As the songs matured, it became clear that both artists drew inspiration from the geography and industry of Southeastern Michigan. An afternoon spent on Belle Isle watching sheets of ice flow from Lake St. Clair down the Detroit River typified a prelude to a particularly fruitful late night recording session. Cimbalik and Thornburgh have since relocated, to Albuquerque and Chicago, respectively, continuing to write, produce and perform.
+            A sheet music book for Prince’s “Purple Rain” spotted in the back of Cimbalik’s Chevrolet during a session at a mutual friend’s studio was the genesis of Super Public. Intrigued by each other’s knowledge and skill, it was only a matter of days before a TR-707 drum machine and Juno 6 analog synthesizer were passed back and forth, crafting patterns and textures over the course of the following month. As the songs matured, it became clear that both artists drew inspiration from the geography and industry of Southeastern Michigan. An afternoon spent on Belle Isle watching sheets of ice flow from Lake St. Clair down the Detroit River typified a prelude to a particularly fruitful late night recording session. Thornburgh and Cimbalik have since relocated, to Albuquerque and Chicago, respectively, continuing to write, produce and perform.
             </Paragraph>
           </InnerContainer>
         </PageSection>
