@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Container = styled.div`
   align-items: center;
@@ -182,24 +182,82 @@ const PauseButton = styled.div`
   }
 `;
 
+const TimeDisplay = styled.div`
+  color: deepskyblue;
+  font-size: 2rem;
+  text-align: center;
+`;
+
+const SongTitle = styled.div`
+  color: deepskyblue;
+  font-size: 3rem;
+`;
+
+const PlaylistContainer = styled.div`
+  color: deepskyblue;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+const PlaylistItem = styled.div`
+  color: deepskyblue;
+  font-size: 2rem;
+  border-bottom: 1px dashed deepskyblue;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
 function Layout({ children, logoColor, videoName, nextPage, showAnimation, textColor = "black", audioPlayerColor = 'bada55' }) {
 let Amplitude;
+const [songs, setSongs] = useState([]);
   if (typeof window !== 'undefined') {
     Amplitude = require('amplitudejs');
   }
 
-  useEffect(() => Amplitude.init({
+  useEffect(() => {Amplitude.init({
     songs: [
       {
         "name": "Crime Scene",
         "artist": "Super Public",
         "album": "More Than A Marathon",
         "url": "https://s3.amazonaws.com/super-public-site-assets/01+Crime+Scene.mp3",
-        "cover_art_url": "",
-        "made_up_key": "I'm made up completely"
+        "cover_art_url": ""
+      },
+      {
+        "name": "MT2",
+        "artist": "Super Public",
+        "album": "More Than A Marathon",
+        "url": "https://s3.amazonaws.com/super-public-site-assets/mt2.mp3",
+        "cover_art_url": ""
+      },
+      {
+        "name": "Cloud Cover",
+        "artist": "Super Public",
+        "album": "More Than A Marathon",
+        "url": "https://s3.amazonaws.com/super-public-site-assets/cloud-cover.mp3",
+        "cover_art_url": ""
+      },
+      {
+        "name": "Effock",
+        "artist": "Super Public",
+        "album": "More Than A Marathon",
+        "url": "https://s3.amazonaws.com/super-public-site-assets/effock.mp3",
+        "cover_art_url": ""
       }
-    ]
-  }), []);
+    ],
+    playlists: {
+      "more_than_a_marathon": {
+        songs: [0, 1],
+        title: 'More Than A Marathon'
+      },
+    }
+  });
+  setSongs(Amplitude.getSongs());
+}, []);
 
   return (
   <Container>
@@ -211,8 +269,8 @@ let Amplitude;
     </Head>
 
     <BackgroundVideo poster={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
-      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.webm`} type="video/webm" />
-      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.mp4`} type="video/mp4" />
+      {/* <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.webm`} type="video/webm" />
+      <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.mp4`} type="video/mp4" /> */}
     </BackgroundVideo>
 
     {/* <BackgroundVideo poster={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
@@ -231,23 +289,36 @@ let Amplitude;
         <PageSection textColor={textColor}>
           <InnerContainer>
             <Paragraph>
-            A sheet music book for Prince’s “Purple Rain” spotted in the back of Cimbalik’s Chevrolet during a session at a mutual friend’s studio was the genesis of Super Public. Intrigued by each other’s knowledge and skill, it was only a matter of days before a TR-707 drum machine and Juno 6 analog synthesizer were passed back and forth, crafting patterns and textures over the course of the following month. As the songs matured, it became clear that both artists drew inspiration from the unique geography and anthropology of Southeastern Michigan. An afternoon spent on Belle Isle watching sheets of ice flow from Lake St. Clair down the Detroit River typified a prelude to a particularly fruitful late night recording session. Cimbalik and Thornburgh have since relocated, to Albuquerque and Chicago, respectively, continuing to write, produce and perform.
+            A sheet music book for Prince’s “Purple Rain” spotted in the back of Cimbalik’s Chevrolet during a session at a mutual friend’s studio was the genesis of Super Public. Intrigued by each other’s knowledge and skill, it was only a matter of days before a TR-707 drum machine and Juno 6 analog synthesizer were passed back and forth, crafting patterns and textures over the course of the following month. As the songs matured, it became clear that both artists drew inspiration from the geography and industry of Southeastern Michigan. An afternoon spent on Belle Isle watching sheets of ice flow from Lake St. Clair down the Detroit River typified a prelude to a particularly fruitful late night recording session. Cimbalik and Thornburgh have since relocated, to Albuquerque and Chicago, respectively, continuing to write, produce and perform.
             </Paragraph>
           </InnerContainer>
         </PageSection>
         <PageSection fullWidth>
-          <InnerContainer>
-          {/* <iframe width="100%" height="300" scrolling="no" frameBorder="no" allow="autoplay" src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2045277&color=%23${audioPlayerColor}&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false`}>
-          </iframe> */}
-          {/* <audio src="https://res.cloudinary.com/bcimbali/video/upload/v1598317896/Audio/01_Crime_Scene.mp3" controls type="audio/mp3" /> */}
-          <RadioWrapper>
-            <ButtonsWrapper>
-              <PlayButton className="amplitude-play">PLAY</PlayButton>
-              <PauseButton className="amplitude-pause">PAUSE</PauseButton>
-            </ButtonsWrapper>
-            <progress style={{ width: '100%' }} class="amplitude-song-played-progress sp-progress-bar"></progress>
-          </RadioWrapper>
-          </InnerContainer>
+
+          {Amplitude && (
+            <InnerContainer>
+              <RadioWrapper>
+                {console.log('above SongTitle in render')}
+              <SongTitle data-amplitude-song-info="name"></SongTitle>
+                <TimeDisplay className="amplitude-current-time"></TimeDisplay>
+                <ButtonsWrapper>
+                  <PlayButton className="amplitude-play">PLAY</PlayButton>
+                  <PauseButton className="amplitude-pause">PAUSE</PauseButton>
+                </ButtonsWrapper>
+                <progress style={{ width: '100%' }} className="amplitude-song-played-progress sp-progress-bar"></progress>
+                <PlaylistContainer>{songs.map((song, idx) => (
+                    <PlaylistItem key={song.name} onClick={() => (
+                      Amplitude.playSongAtIndex(idx))}
+                    >
+                      {song.name}
+                    </PlaylistItem>
+                  )
+                )}
+                </PlaylistContainer>
+              </RadioWrapper>
+            </InnerContainer>)
+          }
+
         </PageSection>
         <PageSection textColor={textColor}>
           <InnerContainer>
