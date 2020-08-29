@@ -134,6 +134,54 @@ const RadioWrapper = styled.div`
       color: red;
     }
   }
+
+  .song-slider {
+    margin-top: 20px; 
+
+    -webkit-appearance: none;
+    appearance: none;
+
+    ::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #6FE19E;
+      cursor: pointer;
+      height: 25px;
+      width: 25px;
+    }
+
+    ::-moz-range-thumb {
+      /* Styles for Firefox */
+      background: #6FE19E;
+      border-radius: 0;
+      cursor: pointer;
+      height: 25px;
+      width: 25px;
+    }
+
+    ::-ms-thumb {
+      /* Styles for IE */
+      background: #6FE19E;
+      cursor: pointer;
+      height: 25px;
+      width: 25px;
+    }
+
+    ::-webkit-slider-runnable-track {
+      /* Styles for Chrome */
+      background-color: deepskyblue;
+    }
+    ::-moz-range-track {
+      /* Styles for Firefox */
+      background-color: deepskyblue;
+      height: 25px;
+    }
+    ::-ms-track {
+      /* Styles for IE */
+      background-color: deepskyblue;
+      height: 25px;
+    }
+  }
 `;
 
 const ButtonsWrapper = styled.div`
@@ -202,6 +250,7 @@ const SongDurationTime = styled.div`
 const SongTitle = styled.div`
   color: deepskyblue;
   font-size: 3rem;
+  text-align: center;
 `;
 
 const PlaylistContainer = styled.div`
@@ -314,7 +363,7 @@ const [songs, setSongs] = useState([]);
                   <PlayButton className="amplitude-play">PLAY</PlayButton>
                   <PauseButton className="amplitude-pause">PAUSE</PauseButton>
                 </ButtonsWrapper>
-                <progress style={{ width: '100%' }} className="amplitude-song-played-progress sp-progress-bar"></progress>
+                <input style={{ width: '100%' }} type="range" className="amplitude-song-slider song-slider" step=".1" />
                 <TimeDisplay>
                   <SongCurrentTime className="amplitude-current-time"></SongCurrentTime>
                   <SongDurationTime className="amplitude-duration-time"></SongDurationTime>
