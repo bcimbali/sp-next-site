@@ -336,6 +336,7 @@ const [songs, setSongs] = useState([]);
     ]
   });
   setSongs(Amplitude.getSongs());
+  Amplitude.pause();
 }, []);
 
   return (
