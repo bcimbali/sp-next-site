@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 const Container = styled.div`
@@ -341,22 +340,11 @@ const [songs, setSongs] = useState([]);
 
   return (
   <Container>
-    <Head>
-      <title>Super Public</title>
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
-      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300&display=swap" rel="stylesheet" />
-    </Head>
 
     <BackgroundVideo poster={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
       <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.webm`} type="video/webm" />
       <source src={`https://s3.amazonaws.com/super-public-site-assets/drive-loop.mp4`} type="video/mp4" />
     </BackgroundVideo>
-
-    {/* <BackgroundVideo poster={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.jpg`} muted playsInline="playsinline" autoPlay="autoplay" loop="loop" id="myVideo" disablePictureInPicture >
-      <source src={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.webm`} type="video/webm" />
-      <source src={`https://res.cloudinary.com/bcimbali/video/upload/v1/Videos/${videoName}.mp4`} type="video/mp4" />
-    </BackgroundVideo> */}
 
     <PageSection>
       <StyledHeader>
