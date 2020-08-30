@@ -34,6 +34,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+          <link href="/fonts/fonts.css" rel="stylesheet"/>
           <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;300&display=swap" rel="stylesheet" />
         </Head>
         <body>

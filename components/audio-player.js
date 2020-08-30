@@ -77,6 +77,7 @@ const PlaylistItem = styled.div`
 const RadioWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  font-family: 'alarm-clock';
 
   .sp-progress-bar {
     progress[value] {
