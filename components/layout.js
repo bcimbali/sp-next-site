@@ -97,6 +97,7 @@ const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  font-family: 'alarm-clock';
   
   div {
     margin-bottom: 40px;
