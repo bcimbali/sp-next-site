@@ -63,6 +63,7 @@ const PlaylistContainer = styled.div`
 const PlaylistItem = styled.div`
   border-bottom: 1px solid deepskyblue;
   color: deepskyblue;
+  display: flex;
   font-size: 2rem;
   padding: 5px 0;
 
@@ -161,6 +162,7 @@ const TimeDisplay = styled.div`
 function AudioPlayer() {
   let Amplitude;
   const [songs, setSongs] = useState([]);
+  const [currentSongIdx, setCurrentSongIdx] = useState(0);
     if (typeof window !== 'undefined') {
       Amplitude = require('amplitudejs');
     }
@@ -216,7 +218,12 @@ function AudioPlayer() {
           "url": "https://s3.amazonaws.com/super-public-site-assets/why-are-we-whispering.mp3",
           "cover_art_url": ""
         }
-      ]
+      ],
+      callbacks: {
+        song_change: function(){
+          setCurrentSongIdx(Amplitude.getActiveIndex());
+        }
+      }
     });
     setSongs(Amplitude.getSongs());
     Amplitude.pause();
@@ -247,11 +254,16 @@ function AudioPlayer() {
             <SongDurationTime className="amplitude-duration-time"></SongDurationTime>
           </TimeDisplay>
           <PlaylistContainer>{songs.map((song, idx) => (
+            <>
               <PlaylistItem key={song.name} onClick={() => (
                 Amplitude.playSongAtIndex(idx))}
               >
                 {song.name}
+              {currentSongIdx === idx && (
+                <div>--Active</div>
+              )}
               </PlaylistItem>
+            </>
             )
           )}
           </PlaylistContainer>
