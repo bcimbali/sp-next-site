@@ -68,11 +68,14 @@ const PlaylistItem = styled.div`
   padding: 5px 0;
 
   :hover {
-    background-color: #00bfff;
+    background-color: rgba(0, 191, 255, 0.3);
     cursor: pointer;
-    color: #000000;
     opacity: 0.8;
   }
+
+  ${({ isActive }) => isActive && css`
+    background-color: rgba(0, 191, 255, 0.2);
+  `}
 `;
 
 const RadioWrapper = styled.div`
@@ -174,49 +177,56 @@ function AudioPlayer() {
           "artist": "Super Public",
           "album": "More Than A Marathon",
           "url": "https://s3.amazonaws.com/super-public-site-assets/01+Crime+Scene.mp3",
-          "cover_art_url": ""
+          "cover_art_url": "",
+          "key": "kjasdfijfjafsdaf"
         },
         {
           "name": "MT2",
           "artist": "Super Public",
           "album": "More Than A Marathon",
           "url": "https://s3.amazonaws.com/super-public-site-assets/mt2.mp3",
-          "cover_art_url": ""
+          "cover_art_url": "",
+          "key": "kwerewqeqwesfsdfwv"
         },
         {
           "name": "Cloud Cover",
           "artist": "Super Public",
           "album": "More Than A Marathon",
           "url": "https://s3.amazonaws.com/super-public-site-assets/cloud-cover.mp3",
-          "cover_art_url": ""
+          "cover_art_url": "",
+          "key": "werqweqwedsafasvcxzv"
         },
         {
           "name": "Effock",
           "artist": "Super Public",
           "album": "More Than A Marathon",
           "url": "https://s3.amazonaws.com/super-public-site-assets/effock.mp3",
-          "cover_art_url": ""
+          "cover_art_url": "",
+          "key": "ioerjjknvkjnioqenciunw"
         },
         {
           "name": "Music is my Jam",
           "artist": "Super Public",
           "album": "Lottery of Life",
           "url": "https://s3.amazonaws.com/super-public-site-assets/music-is-my-jam.mp3",
-          "cover_art_url": ""
+          "cover_art_url": "",
+          "key": "qwemcmndkfjfwueyritwefihdssd"
         },
         {
           "name": "Thaw",
           "artist": "Super Public",
           "album": "Lottery of Life",
           "url": "https://s3.amazonaws.com/super-public-site-assets/thaw.mp3",
-          "cover_art_url": ""
+          "cover_art_url": "",
+          "key": "qwnvjndsywrgvyrwbvo"
         },
         {
           "name": "Why are we Whispering",
           "artist": "Super Public",
           "album": "Lottery of Life",
           "url": "https://s3.amazonaws.com/super-public-site-assets/why-are-we-whispering.mp3",
-          "cover_art_url": ""
+          "cover_art_url": "",
+          "key": "nsvyewuwvkvheuivnwin"
         }
       ],
       callbacks: {
@@ -255,13 +265,10 @@ function AudioPlayer() {
           </TimeDisplay>
           <PlaylistContainer>{songs.map((song, idx) => (
             <>
-              <PlaylistItem key={song.name} onClick={() => (
+              <PlaylistItem key={song.key} isActive={currentSongIdx === idx} onClick={() => (
                 Amplitude.playSongAtIndex(idx))}
               >
                 {song.name}
-              {currentSongIdx === idx && (
-                <div>--Active</div>
-              )}
               </PlaylistItem>
             </>
             )
