@@ -229,8 +229,17 @@ function AudioPlayer() {
         <RadioWrapper>
           <SongTitle data-amplitude-song-info="name"></SongTitle>
           <ButtonsWrapper>
-            <PlayButton className="amplitude-play">PLAY</PlayButton>
-            <PauseButton className="amplitude-pause">PAUSE</PauseButton>
+            <PlayButton className="amplitude-play">
+              <svg width="40" height="52" viewBox="0 0 40 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 26L0.25 51.9808V0.0192375L40 26Z" fill="#111111"/>
+              </svg>
+            </PlayButton>
+            <PauseButton className="amplitude-pause">
+              <svg width="29" height="54" viewBox="0 0 29 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="12" height="54" fill="#111111"/>
+                <rect x="17" width="12" height="54" fill="#111111"/>
+              </svg>
+            </PauseButton>
           </ButtonsWrapper>
           <input style={{ width: '100%' }} type="range" className="amplitude-song-slider song-slider" step=".1" />
           <TimeDisplay>
