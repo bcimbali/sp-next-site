@@ -9,6 +9,8 @@ const PageWrapper = styled.section`
   font-weight: 100;
   text-transform: uppercase;
   min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.8s;
 
   ${({ fullWidth }) => fullWidth && css`
     justify-content: center;
@@ -17,17 +19,18 @@ const PageWrapper = styled.section`
   `}
 
   ${({ isIntersecting }) => isIntersecting && css`
-    border: 3px solid yellow;
+    opacity: 1;
   `}
 
   @media (max-width: 768px) {
     font-weight: 300;
+    transition-duration: 0.5s;
   }
 `;
 
 function PageSection({ children, fullWidth, textColor }) {
   const [ref, entry] = useIntersect({
-    threshold: 0.5
+    threshold: 0.3
   });
 
   return (
