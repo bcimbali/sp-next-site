@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import AudioPlayer from './audio-player';
+import PageSection from './../components/page-section';
 
 const Container = styled.div`
   align-items: center;
@@ -60,25 +61,6 @@ const Logo = styled.svg`
   `}
 `;
 
-const PageSection = styled.section`
-  align-items: center;
-  color: ${({ textColor }) => textColor};
-  display: flex;
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 100;
-  text-transform: uppercase;
-  min-height: 100vh;
-
-  ${({ fullWidth }) => fullWidth && css`
-    justify-content: center;
-    padding: 0 20px;
-    width: 100vw;
-  `}
-
-  @media (max-width: 768px) {
-    font-weight: 300;
-  }
-`;
 
 const InnerContainer = styled.div`
   max-width: 1000px;
