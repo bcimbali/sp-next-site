@@ -96,7 +96,7 @@ const LinksContainer = styled.div`
     transition: all 0.5s;
 
     :hover {
-      border-color: ${({ textColor }) => textColor};
+      border-color: ${({ $textColor }) => $textColor};
       letter-spacing: 10px;
       opacity: 0.8;
     }
@@ -126,7 +126,7 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
       </StyledHeader>
     </PageSection>
 
-        <PageSection textColor={textColor}>
+        <PageSection $textColor={textColor}>
           <InnerContainer>
             <Paragraph>
             A sheet music book for Prince’s “Purple Rain” spotted in the back of Cimbalik’s Chevrolet during a session at a mutual friend’s studio was the genesis of Super Public. Intrigued by each other’s knowledge and skill, it was only a matter of days before a TR-707 drum machine and Juno 6 analog synthesizer were passed back and forth, crafting patterns and textures over the course of the following month. As the songs matured, it became clear that both artists drew inspiration from the geography and industry of Southeastern Michigan. An afternoon spent on Belle Isle watching sheets of ice flow from Lake St. Clair down the Detroit River typified a prelude to a particularly fruitful late night recording session. Thornburgh and Cimbalik have since relocated, to Albuquerque and Chicago, respectively, continuing to write, produce and perform.
@@ -136,9 +136,9 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
         <PageSection fullWidth>
           <AudioPlayer />
         </PageSection>
-        <PageSection textColor={textColor}>
+        <PageSection $textColor={textColor}>
           <InnerContainer>
-            <LinksContainer textColor={textColor}>
+            <LinksContainer $textColor={textColor}>
             <div>
               <a target="_blank" href="http://chambrayrecords.com/cham009">Lottery of Life</a>
             </div>
