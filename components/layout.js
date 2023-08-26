@@ -1,7 +1,12 @@
+import dynamic from 'next/dynamic';
 import styled, { css } from 'styled-components';
-import Link from 'next/link';
-import AudioPlayer from './audio-player';
 import PageSection from './../components/page-section';
+
+// Dyanmically load to prevent hydration errors:
+// https://nextjs.org/learn/seo/improve/dynamic-import-components
+const AudioPlayer = dynamic(() => import('./audio-player'), {
+  ssr: false
+});
 
 const Container = styled.div`
   align-items: center;
