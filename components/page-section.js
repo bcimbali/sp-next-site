@@ -3,7 +3,7 @@ import useIntersect from './../hooks/intersection-observer';
 
 const PageWrapper = styled.section`
   align-items: center;
-  color: ${({ textColor = "deepskyblue" }) => textColor};
+  color: ${({ $textColor = "deepskyblue" }) => $textColor};
   display: flex;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 100;
@@ -12,13 +12,13 @@ const PageWrapper = styled.section`
   opacity: 0;
   transition: opacity 0.8s;
 
-  ${({ fullWidth }) => fullWidth && css`
+  ${({ $fullWidth }) => $fullWidth && css`
     justify-content: center;
     padding: 0 20px;
     width: 100vw;
   `}
 
-  ${({ isIntersecting }) => isIntersecting && css`
+  ${({ $isIntersecting }) => $isIntersecting && css`
     opacity: 1;
   `}
 
@@ -37,9 +37,9 @@ function PageSection({ children, fullWidth, textColor }) {
     <PageWrapper
       ref={ref}
       ratio={entry.intersectionRatio}
-      isIntersecting={entry.isIntersecting}
-      fullWidth={fullWidth}
-      textColor={textColor}
+      $isIntersecting={entry.isIntersecting}
+      $fullWidth={fullWidth}
+      $textColor={textColor}
     >
       {children}
     </PageWrapper>
