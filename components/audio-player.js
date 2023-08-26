@@ -75,7 +75,7 @@ const PlaylistItem = styled.div`
     opacity: 0.8;
   }
 
-  ${({ isActive }) => isActive && css`
+  ${({ $isActive }) => $isActive && css`
     background-color: rgba(0, 191, 255, 0.2);
   `}
 `;
@@ -266,13 +266,13 @@ function AudioPlayer() {
             <SongDurationTime className="amplitude-duration-time"></SongDurationTime>
           </TimeDisplay>
           <PlaylistContainer>{songs.map((song, idx) => (
-            <>
-              <PlaylistItem key={song.key} isActive={currentSongIdx === idx} onClick={() => (
+            <div key={song.key}>
+              <PlaylistItem $isActive={currentSongIdx === idx} onClick={() => (
                 Amplitude.playSongAtIndex(idx))}
               >
                 {song.name}
               </PlaylistItem>
-            </>
+            </div>
             )
           )}
           </PlaylistContainer>

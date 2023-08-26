@@ -36,7 +36,7 @@ function PageSection({ children, fullWidth, textColor }) {
   return (
     <PageWrapper
       ref={ref}
-      ratio={entry.intersectionRatio}
+      $ratio={entry.intersectionRatio}
       $isIntersecting={entry.isIntersecting}
       $fullWidth={fullWidth}
       $textColor={textColor}
