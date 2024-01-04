@@ -8,7 +8,10 @@ const ButtonsWrapper = styled.div`
 `;
 
 const InnerContainer = styled.div`
+  background: rgba(0, 0, 0, 1);
+  border-radius: 1rem;
   max-width: 1000px;
+  padding: 1rem;
   width: 100%;
 `;
 
