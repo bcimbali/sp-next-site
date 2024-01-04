@@ -23,12 +23,12 @@ const PauseButton = styled.div`
   opacity: 0.8;
   width: 100%;
 
-  :hover {
+  &:hover {
     cursor: pointer;
     opacity: 0.5;
   }
 
-  :active {
+  &:active {
     opacity: 0.3;
   }
 `;
@@ -44,12 +44,12 @@ const PlayButton = styled.div`
   opacity: 0.8;
   width: 100%;
 
-  :hover {
+  &:hover {
     cursor: pointer;
     opacity: 0.5;
   }
 
-  :active {
+  &:active {
     opacity: 0.3;
   }
 `;
@@ -69,7 +69,7 @@ const PlaylistItem = styled.div`
   font-size: 2rem;
   padding: 5px 0;
 
-  :hover {
+  &:hover {
     background-color: rgba(0, 191, 255, 0.3);
     cursor: pointer;
     opacity: 0.8;
@@ -98,7 +98,7 @@ const RadioWrapper = styled.div`
     -webkit-appearance: none;
     appearance: none;
 
-    ::-webkit-slider-thumb {
+    &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
       background: #6FE19E;
@@ -107,7 +107,7 @@ const RadioWrapper = styled.div`
       width: 25px;
     }
 
-    ::-moz-range-thumb {
+    &::-moz-range-thumb {
       /* Styles for Firefox */
       background: #6FE19E;
       border-radius: 0;
@@ -116,7 +116,7 @@ const RadioWrapper = styled.div`
       width: 25px;
     }
 
-    ::-ms-thumb {
+    &::-ms-thumb {
       /* Styles for IE */
       background: #6FE19E;
       cursor: pointer;
@@ -124,16 +124,16 @@ const RadioWrapper = styled.div`
       width: 25px;
     }
 
-    ::-webkit-slider-runnable-track {
+    &::-webkit-slider-runnable-track {
       /* Styles for Chrome */
       background-color: deepskyblue;
     }
-    ::-moz-range-track {
+    &::-moz-range-track {
       /* Styles for Firefox */
       background-color: deepskyblue;
       height: 25px;
     }
-    ::-ms-track {
+    &::-ms-track {
       /* Styles for IE */
       background-color: deepskyblue;
       height: 25px;

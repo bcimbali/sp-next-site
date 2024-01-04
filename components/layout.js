@@ -95,7 +95,7 @@ const LinksContainer = styled.div`
     border-bottom: 1px dashed transparent;
     transition: all 0.5s;
 
-    :hover {
+    &:hover {
       border-color: ${({ $textColor }) => $textColor};
       letter-spacing: 10px;
       opacity: 0.8;
@@ -104,8 +104,8 @@ const LinksContainer = styled.div`
     @media (max-width: 768px) {
       font-size: 1.5rem;
 
-      :hover {
-        letter-spacing: 3px;
+      &:hover {
+        letter-spacing: 0.1875rem;
       }
     }
   }
