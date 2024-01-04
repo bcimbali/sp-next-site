@@ -7,10 +7,12 @@ const PageWrapper = styled.section`
   display: flex;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 100;
+  justify-content: center;
   text-transform: uppercase;
   min-height: 100vh;
   opacity: 0;
   transition: opacity 0.8s;
+  width: 100%;
 
   ${({ $fullWidth }) => $fullWidth && css`
     justify-content: center;

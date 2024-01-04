@@ -73,7 +73,10 @@ const InnerContainer = styled.div`
 `;
 
 const Paragraph = styled.div`
+  background: rgba(0, 0, 0, 1);
+  border-radius: 1rem;
   font-size: 2rem;
+  padding: 1rem;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -81,13 +84,16 @@ const Paragraph = styled.div`
 `;
 
 const LinksContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  background: rgba(0, 0, 0, 1);
+  border-radius: 1rem;
+  display: grid;
+  gap: 2rem;
   text-align: center;
   font-family: 'alarm-clock';
+  padding: 1rem;
+  width: 100%;
   
   div {
-    margin-bottom: 40px;
   }
 
   a {
@@ -133,7 +139,7 @@ function Layout({ children, logoColor, videoName, nextPage, showAnimation, textC
             </Paragraph>
           </InnerContainer>
         </PageSection>
-        <PageSection fullWidth>
+        <PageSection>
           <AudioPlayer />
         </PageSection>
         <PageSection $textColor={textColor}>
